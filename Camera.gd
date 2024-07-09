@@ -7,6 +7,7 @@ func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad(-event.relative.x * 0.1))
 		player.rotate_y(deg_to_rad(-event.relative.x * 0.1))
+		# Adjust camera rotation based on mouse motion
 
 func _ready():
 	pass # Replace with function body.
