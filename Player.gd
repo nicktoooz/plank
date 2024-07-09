@@ -28,7 +28,17 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
+	var n = ($FrontLeft.get_collision_normal() + $FrontRight.get_collision_normal() + $RearLeft.get_collision_normal() + $RearRight.get_collision_normal() + $FrontCentre.get_collision_normal() + $RearCentre.get_collision_normal() + $Centre.get_collision_normal()) / 7.0
+	var xform = align_with_y(global_transform, n)
+	global_transform = global_transform.interpolate_with(xform, 12 * delta)
+
 	move_and_slide()
 	
+	
+func align_with_y(xform, new_y):
+	xform.basis.y = new_y
+	xform.basis.x = -xform.basis.z.cross(new_y)
+	xform.basis = xform.basis.orthonormalized()
+	return xform
 	
 	

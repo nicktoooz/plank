@@ -15,8 +15,8 @@ func _ready():
 func _process(delta):
 	# Lerp position
 	position = lerp(position, player.position, 0.2)
-	
 	# Lerp rotation for the y-axis
 	var target_rotation_y = player.rotation.y
 	var current_rotation_y = rotation.y
+	
 	rotation.y = lerp_angle(current_rotation_y, target_rotation_y, 0.2)
