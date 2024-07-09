@@ -1,12 +1,11 @@
 extends RayCast3D
 
-var max_distance = 30.0
+var max_distance = 10.0
 @onready var camera_controller = $"../../../.."
 var original_height = 0.0
 
 func _ready():
 	# Set the initial length of the raycast
-	
 	max_distance = target_position.length()
 	original_height = camera_controller.global_transform.origin.y
 
