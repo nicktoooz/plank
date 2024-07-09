@@ -14,8 +14,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# Lerp position
-	position = lerp(position, player.position, 0.01)
-	
+	position = lerp(position, player.position, 0.1)
 	# Lerp rotation
 	var target_rotation = player.rotation.y
 	var current_rotation = rotation.y

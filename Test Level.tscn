@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://co54fr8gljd8y"]
+[gd_scene load_steps=13 format=3 uid="uid://co54fr8gljd8y"]
 
 [ext_resource type="Texture2D" uid="uid://bdjetndkixn6l" path="res://addons/kenney_prototype_textures/dark/texture_04.png" id="1_02omg"]
 [ext_resource type="PackedScene" uid="uid://c5nofmm67fcjk" path="res://Player.tscn" id="2_jch6v"]
@@ -30,6 +30,12 @@ size = Vector3(0.2, 2, 3)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3wuqu"]
 data = PackedVector3Array(-0.1, 1, 1.5, 0.1, 1, 1.5, -0.1, -1, 1.5, 0.1, 1, 1.5, 0.1, -1, 1.5, -0.1, -1, 1.5, 0.1, 1, -1.5, -0.1, 1, -1.5, 0.1, -1, -1.5, -0.1, 1, -1.5, -0.1, -1, -1.5, 0.1, -1, -1.5, 0.1, 1, 1.5, 0.1, 1, -1.5, 0.1, -1, 1.5, 0.1, 1, -1.5, 0.1, -1, -1.5, 0.1, -1, 1.5, -0.1, 1, -1.5, -0.1, 1, 1.5, -0.1, -1, -1.5, -0.1, 1, 1.5, -0.1, -1, 1.5, -0.1, -1, -1.5, 0.1, 1, 1.5, -0.1, 1, 1.5, 0.1, 1, -1.5, -0.1, 1, 1.5, -0.1, 1, -1.5, 0.1, 1, -1.5, -0.1, -1, 1.5, 0.1, -1, 1.5, -0.1, -1, -1.5, 0.1, -1, 1.5, 0.1, -1, -1.5, -0.1, -1, -1.5)
 
+[sub_resource type="PrismMesh" id="PrismMesh_xo4lc"]
+size = Vector3(5, 2, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_nbjnh"]
+data = PackedVector3Array(0, 1, 0.5, 2.5, -1, 0.5, -2.5, -1, 0.5, 0, 1, -0.5, -2.5, -1, -0.5, 2.5, -1, -0.5, 0, 1, 0.5, 0, 1, -0.5, 2.5, -1, 0.5, 0, 1, -0.5, 2.5, -1, -0.5, 2.5, -1, 0.5, 0, 1, -0.5, 0, 1, 0.5, -2.5, -1, -0.5, 0, 1, 0.5, -2.5, -1, 0.5, -2.5, -1, -0.5, -2.5, -1, 0.5, 2.5, -1, 0.5, -2.5, -1, -0.5, 2.5, -1, 0.5, 2.5, -1, -0.5, -2.5, -1, -0.5)
+
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pj0f0"]
 data = PackedVector3Array(-20, 0.1, 20, 20, 0.1, 20, -20, -0.1, 20, 20, 0.1, 20, 20, -0.1, 20, -20, -0.1, 20, 20, 0.1, -20, -20, 0.1, -20, 20, -0.1, -20, -20, 0.1, -20, -20, -0.1, -20, 20, -0.1, -20, 20, 0.1, 20, 20, 0.1, -20, 20, -0.1, 20, 20, 0.1, -20, 20, -0.1, -20, 20, -0.1, 20, -20, 0.1, -20, -20, 0.1, 20, -20, -0.1, -20, -20, 0.1, 20, -20, -0.1, 20, -20, -0.1, -20, 20, 0.1, 20, -20, 0.1, 20, 20, 0.1, -20, -20, 0.1, 20, -20, 0.1, -20, 20, 0.1, -20, -20, -0.1, 20, 20, -0.1, 20, -20, -0.1, -20, 20, -0.1, 20, 20, -0.1, -20, -20, -0.1, -20)
 
@@ -55,6 +61,15 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/Wall/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_3wuqu")
+
+[node name="Ramp" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.49434, 1.07843, -5.61173)
+mesh = SubResource("PrismMesh_xo4lc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor/Ramp"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/Ramp/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_nbjnh")
 
 [node name="Player" parent="Floor" instance=ExtResource("2_jch6v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.518242, 0)
