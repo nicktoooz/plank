@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dirymhg8qxsir"]
+
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="1_bdr4i"]
+
+[node name="Controls" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Virtual Joystick" parent="." instance=ExtResource("1_bdr4i")]
+layout_mode = 1
+offset_left = 71.0
+offset_top = -396.0
+offset_right = 284.0
+offset_bottom = -191.0
+scale = Vector2(1.5, 1.5)
