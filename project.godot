@@ -13,16 +13,12 @@ config_version=5
 config/name="Plank"
 run/main_scene="res://Terrain.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [autoload]
 
 BetterTerrain="*res://addons/better-terrain/BetterTerrain.gd"
-
-[display]
-
-window/size/viewport_width=1920
-window/size/viewport_height=1080
 
 [editor_plugins]
 

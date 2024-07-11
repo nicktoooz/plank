@@ -35,12 +35,9 @@ func _process(delta):
 	if tilt_degree > 1:  # Adjust the threshold as needed
 		tilt_camera(-tilt_degree - 8, delta)
 	elif tilt_degree < -1:  # Adjust the threshold as needed
-		tilt_camera(tilt_degree, delta)
 		reset_camera(delta)
-		pass
 	else:
 		reset_camera(delta)
-		pass
 
 
 func get_tilt_degree() -> float:
